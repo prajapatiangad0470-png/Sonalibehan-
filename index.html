@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sonali ❤️ My Heart</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    overflow:hidden;
+    font-family:Arial,sans-serif;
+    background:radial-gradient(circle,#3b002d,#100014 70%);
+    color:white;
+}
+
+/* MAIN SCREEN */
+.page{
+    width:100vw;
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    position:relative;
+    overflow:hidden;
+}
+
+/* Stars */
+.star{
+    position:absolute;
+    width:4px;
+    height:4px;
+    background:white;
+    border-radius:50%;
+    animation:blink 2s infinite alternate;
+}
+
+@keyframes blink{
+    from{opacity:.2}
+    to{opacity:1}
+}
+
+/* BIG HEART */
+.heart{
+    width:230px;
+    height:230px;
+    position:relative;
+    transform:rotate(-45deg);
+    background:#ff1744;
+    box-shadow:
+        0 0 30px #ff1744,
+        0 0 70px #ff1744,
+        0 0 120px #ff4081;
+    animation:heartbeat 1.2s infinite;
+}
+
+.heart:before,
+.heart:after{
+    content:"";
+    position:absolute;
+    width:230px;
+    height:230px;
+    border-radius:50%;
+    background:#ff1744;
+}
+
+.heart:before{
+    top:-115px;
+    left:0;
+}
+
+.heart:after{
+    left:115px;
+    top:0;
+}
+
+@keyframes heartbeat{
+    0%,100%{transform:rotate(-45deg) scale(1)}
+    50%{transform:rotate(-45deg) scale(1.1)}
+}
+
+/* Heart text */
+.heartName{
+    position:absolute;
+    z-index:5;
+    transform:rotate(45deg);
+    left:45px;
+    top:95px;
+    font-size:30px;
+    font-weight:bold;
+    text-shadow:0 0 15px white;
+}
+
+/* BUTTON */
+.enter{
+    margin-top:90px;
+    padding:16px 28px;
+    border:none;
+    border-radius:50px;
+    background:white;
+    color:#e91e63;
+    font-size:17px;
+    font-weight:bold;
+    letter-spacing:1px;
+    cursor:pointer;
+    box-shadow:0 0 20px #ff69b4;
+    animation:pulse 1.5s infinite;
+    z-index:20;
+}
+
+@keyframes pulse{
+    50%{
+        transform:scale(1.08);
+        box-shadow:0 0 40px #ff69b4;
+    }
+}
+
+/* MESSAGE PAGE */
+.messagePage{
+    display:none;
+    position:absolute;
+    inset:0;
+    overflow:hidden;
+    background:
+      radial-gradient(circle at center,#50002f,#15001c 65%);
+}
+
+.messageTitle{
+    position:absolute;
+    top:25px;
+    width:100%;
+    text-align:center;
+    font-size:30px;
+    text-shadow:0 0 20px #ff4d91;
+    z-index:10;
+}
+
+.messageBox{
+    position:absolute;
+    width:100%;
+    height:100%;
+    display:flex;
+    flex-wrap:wrap;
+    align-content:center;
+    justify-content:center;
+    gap:12px;
+    padding:80px 15px 20px;
+}
+
+/* SPAM MESSAGES */
+.msg{
+    padding:12px 18px;
+    border-radius:30px;
+    background:rgba(255,255,255,.12);
+    border:1px solid rgba(255,255,255,.4);
+    backdrop-filter:blur(8px);
+    color:white;
+    font-weight:bold;
+    box-shadow:0 0 18px rgba(255,45,120,.7);
+    animation:float 2.5s ease-in-out infinite alternate;
+}
+
+@keyframes float{
+    from{
+        transform:translateY(0) rotate(-2deg);
+    }
+    to{
+        transform:translateY(-12px) rotate(2deg);
+    }
+}
+
+/* Floating hearts */
+.floating{
+    position:absolute;
+    bottom:-50px;
+    font-size:25px;
+    animation:rise linear forwards;
+    pointer-events:none;
+}
+
+@keyframes rise{
+    from{
+        transform:translateY(0) scale(.5) rotate(0);
+        opacity:0;
+    }
+    20%{opacity:1}
+    to{
+        transform:translateY(-110vh) scale(1.5) rotate(360deg);
+        opacity:0;
+    }
+}
+
+/* ENTER ANIMATION */
+.zoom{
+    animation:zoomHeart 1.2s forwards;
+}
+
+@keyframes zoomHeart{
+    to{
+        transform:rotate(-45deg) scale(8);
+        opacity:0;
+    }
+}
+
+.hide{
+    opacity:0;
+    transition:opacity .6s;
+}
+</style>
+</head>
+
+<body>
+
+<div class="page" id="home">
+
+    <div class="heart" id="heart">
+        <div class="heartName">SONALI</div>
+    </div>
+
+    <button class="enter" onclick="enterHeart()">
+        💗 ENTER TO MY HEART 💗
+    </button>
+
+</div>
+
+
+<div class="messagePage" id="messages">
+
+    <div class="messageTitle">
+        💖 SONALI ❤️ IS MY EVERYTHING 💖
+    </div>
+
+    <div class="messageBox" id="messageBox">
+
+        <div class="msg">❤️ Sonali I Love You ❤️</div>
+        <div class="msg">💖 Sonali meri Babu 💖</div>
+        <div class="msg">🥰 Sonali mera bachha 🥰</div>
+        <div class="msg">💕 Sonali mera Sona 💕</div>
+        <div class="msg">😘 Sonali sweetheart 😘</div>
+        <div class="msg">❤️ Sonali tumhi meri sab kuch ho ❤️</div>
+        <div class="msg">💗 I Love You So Much Sonali 💗</div>
+        <div class="msg">🥹 Sonali you are special 🥹</div>
+        <div class="msg">🌸 Meri pyari Sonali 🌸</div>
+        <div class="msg">💞 Sonali meri jaan 💞</div>
+        <div class="msg">❤️ Sirf Sonali ❤️</div>
+        <div class="msg">😘 Sonali meri cutie 😘</div>
+        <div class="msg">💖 Love You Sonali 💖</div>
+        <div class="msg">🌹 Sonali meri duniya 🌹</div>
+        <div class="msg">🥰 Meri Babu Sonali 🥰</div>
+        <div class="msg">💘 Sonali is my happiness 💘</div>
+        <div class="msg">❤️ Sonali forever ❤️</div>
+        <div class="msg">💕 My Sweetheart Sonali 💕</div>
+        <div class="msg">💗 Sonali meri life ho 💗</div>
+        <div class="msg">🫶 Sonali tum meri khushi ho 🫶</div>
+        <div class="msg">💖 Meri jaan Sonali 💖</div>
+        <div class="msg">😘 I Miss You Sonali 😘</div>
+        <div class="msg">❤️ Sonali tum sabse special ho ❤️</div>
+        <div class="msg">🥺 Please always smile Sonali 🥺</div>
+        <div class="msg">💞 Sonali + Love = Forever 💞</div>
+
+    </div>
+
+</div>
+
+
+<script>
+
+/* Stars */
+for(let i=0;i<70;i++){
+
+    let star=document.createElement("div");
+
+    star.className="star";
+
+    star.style.left=Math.random()*100+"%";
+    star.style.top=Math.random()*100+"%";
+
+    star.style.animationDelay=Math.random()*2+"s";
+
+    document.getElementById("home").appendChild(star);
+}
+
+
+/* ENTER HEART */
+function enterHeart(){
+
+    const heart=document.getElementById("heart");
+    const home=document.getElementById("home");
+    const messages=document.getElementById("messages");
+
+    heart.classList.add("zoom");
+
+    home.querySelector(".enter").classList.add("hide");
+
+    setTimeout(()=>{
+
+        home.style.display="none";
+        messages.style.display="block";
+
+        startHearts();
+        spamMessages();
+
+    },1000);
+}
+
+
+/* Floating hearts */
+function startHearts(){
+
+    setInterval(()=>{
+
+        const h=document.createElement("div");
+
+        h.className="floating";
+
+        const emojis=[
+            "❤️","💖","💕","💗",
+            "💘","💞","🥰","😘",
+            "🌹","💋"
+        ];
+
+        h.innerText=
+            emojis[Math.floor(Math.random()*emojis.length)];
+
+        h.style.left=Math.random()*100+"%";
+
+        h.style.animationDuration=
+            (4+Math.random()*5)+"s";
+
+        document.getElementById("messages")
+        .appendChild(h);
+
+        setTimeout(()=>{
+            h.remove();
+        },9000);
+
+    },250);
+}
+
+
+/* Continuous message spam */
+function spamMessages(){
+
+    const texts=[
+        "❤️ Sonali I Love You ❤️",
+        "💖 Sonali meri Babu 💖",
+        "🥰 Sonali mera bachha 🥰",
+        "💕 Sonali mera Sona 💕",
+        "😘 Sonali sweetheart 😘",
+        "❤️ Sonali tumhi meri sab kuch ho ❤️",
+        "💗 I Love You Sonali 💗",
+        "🌸 Meri pyari Sonali 🌸",
+        "💞 Sonali meri jaan 💞",
+        "🥹 Sonali you are special 🥹",
+        "💖 Meri Babu Sonali 💖",
+        "😘 Love You Sonali 😘",
+        "❤️ Sonali meri duniya ❤️",
+        "💘 Sonali forever 💘",
+        "🫶 Sonali meri happiness ho 🫶"
+    ];
+
+    setInterval(()=>{
+
+        const box=document.getElementById("messageBox");
+
+        const msg=document.createElement("div");
+
+        msg.className="msg";
+
+        msg.innerText=
+            texts[Math.floor(Math.random()*texts.length)];
+
+        msg.style.animationDuration=
+            (1.5+Math.random()*2)+"s";
+
+        box.appendChild(msg);
+
+        /* Keep screen smooth */
+        if(box.children.length>45){
+            box.removeChild(box.firstElementChild);
+        }
+
+    },450);
+}
+
+</script>
+
+</body>
+</html>
